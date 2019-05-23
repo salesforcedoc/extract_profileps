@@ -9,6 +9,7 @@ fi
 
 # connect sfdx cli to an org and use the alias here
 # use sfdx force:auth:web:login -r https://test.salesforce.com -a <alias>
+
 # check for an org_alias
 if [ -z "$1" ]; then
     echo "Please specify an alias. $0 <org_alias>"
@@ -54,6 +55,7 @@ if [ -f "${TMP_DIR}/unpackaged.zip" ]; then
     cp -r ${TMP_DIR}/unpackaged/profiles/* "${TGT_DIR}/profiles/"
     cp -r ${TMP_DIR}/unpackaged/permissionsets/* "${TGT_DIR}/permissionsets/"
     cp -r ${TMP_DIR}/unpackaged/package.xml "${TGT_DIR}"
+    echo \* | awk -f extract_profileps.awk > ${TGT_DIR}/package.xml
 
     # cleanup
     #echo Cleaning up...
