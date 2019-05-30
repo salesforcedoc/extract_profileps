@@ -5,7 +5,7 @@ BEGIN {
     print_cache = "";
 }
 /\<objectPermissions\>/{ cache_it = 1; print_it = 1; }
-/\<object\>SOME_OBJECT__/{ skip_it = 1; }
+/\<object\>OBJECT_TO_EXCLUDE\</{ skip_it = 1; }
 {
     if (cache_it==1) {
         if (print_cache=="") {

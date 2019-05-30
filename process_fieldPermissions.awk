@@ -7,7 +7,7 @@ BEGIN {
 /\<fieldPermissions\>/{ cache_it = 1; }
 /\<editable\>true\<\/editable\>/{ print_it = 1; }
 /\<readable\>true\<\/readable\>/{ print_it = 1; }
-/\<field\>SOME_OBJECT.SOME_FIELD\<\/field\>/{ skip_it = 1; }
+/\<field\>OBJECT.FIELD_TO_EXCLUDE\<\/field\>/{ skip_it = 1; }
 {
     if (cache_it==1) {
         if (print_cache=="") {
